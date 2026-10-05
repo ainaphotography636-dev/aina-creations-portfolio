@@ -45,7 +45,7 @@ export function AutoplayVideo({
   }, [muted]);
 
   return (
-    <div className="absolute inset-0">
+    <div className="aina-media-protect absolute inset-0">
       <video
         ref={ref}
         src={src}
@@ -55,8 +55,10 @@ export function AutoplayVideo({
         loop
         playsInline
         preload={preload}
+        draggable={false}
+        onContextMenu={(event) => event.preventDefault()}
         aria-label={ariaLabel}
-        className={className ?? "h-full w-full object-cover"}
+        className={`aina-media-protect ${className ?? "h-full w-full object-cover"}`}
       />
       {showMuteControl ? (
         <button
