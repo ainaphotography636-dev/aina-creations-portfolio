@@ -106,10 +106,12 @@ export function BookingActions({
   subject,
   body,
   popular = false,
+  paymentLink,
 }: {
   subject: string;
   body: string;
   popular?: boolean;
+  paymentLink?: string;
 }) {
   const whatsappClass = popular
     ? "bg-amber-400 !text-slate-950 hover:bg-amber-300"
@@ -134,7 +136,7 @@ export function BookingActions({
         Instant WhatsApp
       </a>
       <a
-        href={paymentHref(subject)}
+        href={paymentHref(subject, paymentLink)}
         target="_blank"
         rel="noopener noreferrer"
         className="col-span-2 inline-flex items-center justify-center gap-1.5 rounded-full border border-amber-400/40 bg-amber-400/10 px-3 py-2.5 text-center text-sm font-semibold leading-tight !text-amber-200 hover:bg-amber-400/20"

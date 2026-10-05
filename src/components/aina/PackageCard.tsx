@@ -51,7 +51,12 @@ export function PackageCard({ tier }: { tier: PackageTier }) {
         ))}
       </ul>
       <BookingFields value={details} onChange={setDetails} />
-      <BookingActions subject={`Quote request: ${tier.name}`} body={body} popular={tier.popular} />
+      <BookingActions
+        subject={`Quote request: ${tier.name}`}
+        body={body}
+        popular={tier.popular}
+        paymentLink={tier.paymentLink}
+      />
     </article>
   );
 }

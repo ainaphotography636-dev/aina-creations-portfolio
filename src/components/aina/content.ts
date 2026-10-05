@@ -17,8 +17,9 @@ export function mailtoHref(subject: string, body: string) {
   return `mailto:${BOOKING_EMAIL}?${query}`;
 }
 
-export function paymentHref(context?: string) {
-  if (STRIPE_PAYMENT_LINK) return STRIPE_PAYMENT_LINK;
+export function paymentHref(context?: string, paymentLink?: string) {
+  const link = paymentLink?.trim() || STRIPE_PAYMENT_LINK;
+  if (link) return link;
   const message = [
     "Hello Aina Creations LLC, I am ready to pay for exhibition media coverage.",
     context ? `Booking: ${context}` : "",
@@ -67,6 +68,8 @@ export type PackageTier = {
   popular?: boolean;
   blurb: string;
   features: string[];
+  /** Stripe Payment Link for this package (Pay & Book Now). */
+  paymentLink?: string;
 };
 
 export const packages: PackageTier[] = [
@@ -74,6 +77,7 @@ export const packages: PackageTier[] = [
     name: "The Express Booth Spark",
     price: 1500,
     blurb: "Same-day output to post while your stand is live.",
+    paymentLink: "https://buy.stripe.com/9B65kw9gSagn9x37KG63K03",
     features: [
       "1-3 hrs coverage",
       "1 photographer",
@@ -87,6 +91,7 @@ export const packages: PackageTier[] = [
     price: 2500,
     popular: true,
     blurb: "Half-day (3-4 hours) coverage with same-day files for social.",
+    paymentLink: "https://buy.stripe.com/eVq28k78K0FN38F1mi63K04",
     features: [
       "Half-day (3-4 hours) coverage",
       "1 photographer + 1 videographer",
@@ -99,6 +104,7 @@ export const packages: PackageTier[] = [
     name: "Ultimate Trade Show Takeover",
     price: 3900,
     blurb: "Full-day (6-8 hour) coverage, posted the same day your stand is live.",
+    paymentLink: "https://buy.stripe.com/00w9AM8cOgEL38F6GC63K05",
     features: [
       "Full-day (6-8 hour) coverage",
       "1 photographer + 1 videographer",
