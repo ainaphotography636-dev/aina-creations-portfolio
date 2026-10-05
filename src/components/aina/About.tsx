@@ -26,8 +26,20 @@ export function About() {
         <SectionHeading
           eyebrow="Who we are"
           title="Exhibition media for global brands."
-          body="Same-day photos and reels for DWTC stands, ready to post while your stand is live."
         />
+        <div className="mt-3 max-w-3xl space-y-3 text-sm leading-relaxed text-slate-400 sm:text-[15px]">
+          <p>
+            Licensed in the UAE (License No: 2431667.01), Aina Creations LLC
+            specializes in elite media production tailored for international
+            exhibitors, corporate giants, and global brands participating at
+            major venues like the Dubai World Trade Centre (DWTC).
+          </p>
+          <p>
+            We bridge the gap between high-end commercial storytelling and
+            lightning-fast digital delivery—ensuring your brand dominates social
+            feeds while your exhibition stand is still buzzing with traffic.
+          </p>
+        </div>
         <ul className="mt-4 grid gap-2 md:grid-cols-3">
           {points.map((point) => (
             <li

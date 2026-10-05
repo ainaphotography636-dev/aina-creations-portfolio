@@ -1,3 +1,5 @@
+"use client";
+
 import { ArrowRight, Clock3, MapPin, Share2 } from "lucide-react";
 import Image from "next/image";
 import { generalBookingMessage, whatsappHref } from "./content";
@@ -52,16 +54,21 @@ export function Hero() {
         </div>
 
         <div className="relative">
-          <div className="overflow-hidden rounded-2xl border border-white/10 bg-slate-900 shadow-2xl shadow-black/40">
-            <div className="relative aspect-[16/10]">
+          <div className="aina-media-protect overflow-hidden rounded-2xl border border-white/10 bg-slate-900 shadow-2xl shadow-black/40">
+            <div
+              className="aina-media-protect relative aspect-[16/10]"
+              onContextMenu={(event) => event.preventDefault()}
+            >
               <Image
                 src="/images/gallery/booth.jpg"
                 alt="Audience seated at a darkened exhibition hall during a live program"
                 fill
                 priority
                 unoptimized
+                draggable={false}
                 sizes="(min-width: 1024px) 520px, 100vw"
-                className="object-cover"
+                className="aina-media-protect object-cover"
+                onContextMenu={(event) => event.preventDefault()}
               />
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/10 to-transparent" />
             </div>

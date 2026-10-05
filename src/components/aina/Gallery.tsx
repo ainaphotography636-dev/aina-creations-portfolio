@@ -78,12 +78,13 @@ export function Gallery() {
             <X className="h-5 w-5" />
           </button>
           <div
-            className={`relative w-full overflow-hidden rounded-xl border border-white/15 bg-black shadow-2xl ${
+            className={`aina-media-protect relative w-full overflow-hidden rounded-xl border border-white/15 bg-black shadow-2xl ${
               active.orientation === "horizontal"
                 ? "max-w-4xl aspect-video"
                 : "max-h-[85vh] max-w-[min(100%,22rem)] aspect-[9/16]"
             }`}
             onClick={(event) => event.stopPropagation()}
+            onContextMenu={(event) => event.preventDefault()}
           >
             <video
               key={active.src}
@@ -93,7 +94,9 @@ export function Gallery() {
               muted={activeMuted}
               loop
               playsInline
-              className="h-full w-full object-contain"
+              draggable={false}
+              className="aina-media-protect h-full w-full object-contain"
+              onContextMenu={(event) => event.preventDefault()}
               onLoadedData={() => {
                 void activeVideoRef.current?.play().catch(() => undefined);
               }}
@@ -236,7 +239,8 @@ function ClipCarousel({
                 onOpen(clip);
               }
             }}
-            className={`group relative cursor-pointer overflow-hidden rounded-lg border border-white/10 bg-slate-900 text-left transition-colors hover:border-amber-400/40 ${
+            onContextMenu={(event) => event.preventDefault()}
+            className={`aina-media-protect group relative cursor-pointer overflow-hidden rounded-lg border border-white/10 bg-slate-900 text-left transition-colors hover:border-amber-400/40 ${
               orientation === "vertical"
                 ? "h-[15rem] w-[8.5rem] shrink-0 md:h-[18rem] md:w-[10.125rem]"
                 : "aspect-video w-full"
