@@ -1,6 +1,7 @@
 {
   "name": "@once-ui-system/magic-portfolio",
   "version": "2.3.0",
+  "packageManager": "npm@10.9.3",
   "scripts": {
     "dev": "next dev",
     "export": "next export",
