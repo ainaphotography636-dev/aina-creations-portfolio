@@ -22,26 +22,30 @@ export function PackageCard({ tier }: { tier: PackageTier }) {
       }`}
     >
       <div className="flex items-start justify-between gap-2">
-        <h3 className="text-sm font-semibold leading-snug text-white">{tier.name}</h3>
+        <h3 className="text-base font-semibold leading-snug text-white sm:text-lg">
+          {tier.name}
+        </h3>
         {tier.popular ? (
-          <span className="shrink-0 rounded-full bg-amber-400 px-2 py-0.5 text-[10px] font-semibold tracking-wide text-slate-950 uppercase">
+          <span className="shrink-0 rounded-full bg-amber-400 px-2 py-0.5 text-xs font-semibold tracking-wide text-slate-950 uppercase">
             Popular
           </span>
         ) : null}
       </div>
-      <p className="mt-1 text-xl font-semibold tracking-tight text-white">{formatAed(tier.price)}</p>
-      <ul className="mt-0.5 flex flex-wrap gap-x-2 gap-y-0 text-[10px] leading-4 text-slate-500">
+      <p className="mt-1 text-xl font-semibold tracking-tight text-white sm:text-2xl">
+        {formatAed(tier.price)}
+      </p>
+      <ul className="mt-1 flex flex-wrap gap-x-2.5 gap-y-1 text-xs leading-5 text-slate-400 sm:text-sm">
         {foreignPrices(tier.price).map((label) => (
           <li key={label} className="whitespace-nowrap">
             {label}
           </li>
         ))}
       </ul>
-      <p className="mt-1 text-xs leading-snug text-slate-400">{tier.blurb}</p>
-      <ul className="mt-2 flex flex-1 flex-col gap-1">
+      <p className="mt-2 text-sm leading-relaxed text-slate-400">{tier.blurb}</p>
+      <ul className="mt-3 flex flex-1 flex-col gap-2">
         {tier.features.map((feature) => (
-          <li key={feature} className="flex gap-1.5 text-xs text-slate-200">
-            <Check className="mt-0.5 h-3.5 w-3.5 shrink-0 text-amber-300" aria-hidden="true" />
+          <li key={feature} className="flex gap-2 text-sm leading-snug text-slate-200">
+            <Check className="mt-0.5 h-4 w-4 shrink-0 text-amber-300" aria-hidden="true" />
             <span>{feature}</span>
           </li>
         ))}

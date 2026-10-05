@@ -5,6 +5,12 @@ export type Clip = {
   orientation: "vertical" | "horizontal";
 };
 
+export type GalleryPhoto = {
+  id: string;
+  title: string;
+  src: string;
+};
+
 function clip(
   filename: string,
   orientation: "vertical" | "horizontal",
@@ -23,6 +29,28 @@ function clip(
     orientation,
   };
 }
+
+function photo(filename: string, title: string): GalleryPhoto {
+  return {
+    id: `photo-${filename}`,
+    title,
+    src: `/images/gallery/${encodeURIComponent(filename)}`,
+  };
+}
+
+/** Still photos from public/images/gallery — one-row slider above reels. */
+export const galleryPhotos: GalleryPhoto[] = [
+  photo("DSC04629.jpg", "Exhibition floor"),
+  photo("DSC04697.jpg", "Stand coverage"),
+  photo("DSC04998.jpg", "Booth detail"),
+  photo("DSC05000.jpg", "Show floor"),
+  photo("DSC05181.jpg", "Visitor moment"),
+  photo("DSC05411.jpg", "Brand presence"),
+  photo("GSK04338.jpg", "Hall view"),
+  photo("GSK04342.jpg", "Crowd energy"),
+  photo("GSK04370.jpg", "Live program"),
+  photo("GSK04395.jpg", "Stage moment"),
+];
 
 /** Prefer the lighter mp4; skip the duplicate 0130.mov. */
 export const reelClips: Clip[] = [

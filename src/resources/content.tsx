@@ -7,7 +7,7 @@ const person: Person = {
   name: `Selene Yu`,
   role: "Design Engineer",
   avatar: "/images/avatar.jpg",
-  email: "example@gmail.com",
+  email: "info@ainaphotography.com",
   location: "Asia/Jakarta", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
   languages: ["English", "Bahasa"], // optional: Leave the array empty if you don't want to display languages
   locale: "en", // BCP 47 language tag for the HTML lang attribute, e.g., 'en', 'ja', 'zh-TW'

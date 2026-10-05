@@ -60,8 +60,8 @@ export function Hero() {
               onContextMenu={(event) => event.preventDefault()}
             >
               <Image
-                src="/images/gallery/booth.jpg"
-                alt="Audience seated at a darkened exhibition hall during a live program"
+                src="/images/hero-exhibition.jpg"
+                alt="Exhibition coverage at Dubai World Trade Centre"
                 fill
                 priority
                 unoptimized

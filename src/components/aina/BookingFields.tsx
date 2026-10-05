@@ -20,7 +20,7 @@ export const emptyBooking: BookingDetails = {
 };
 
 const inputClass =
-  "mt-1 w-full rounded-lg border border-white/10 bg-slate-950/70 px-2.5 py-1.5 text-xs text-white outline-none placeholder:text-slate-600 focus:border-amber-400/50 [color-scheme:dark]";
+  "mt-1 w-full rounded-lg border border-white/10 bg-slate-950/70 px-3 py-2 text-sm text-white outline-none placeholder:text-slate-600 focus:border-amber-400/50 [color-scheme:dark]";
 
 export function bookingDetailLines(details: BookingDetails) {
   const timing =
@@ -48,8 +48,8 @@ export function BookingFields({
   }
 
   return (
-    <div className="mt-2 grid gap-1.5">
-      <label className="text-[11px] font-medium text-slate-400">
+    <div className="mt-3 grid gap-2">
+      <label className="text-sm font-medium text-slate-400">
         Date
         <input
           type="date"
@@ -59,7 +59,7 @@ export function BookingFields({
         />
       </label>
       <div className="grid grid-cols-2 gap-2">
-        <label className="text-[11px] font-medium text-slate-400">
+        <label className="text-sm font-medium text-slate-400">
           Cover from
           <input
             type="time"
@@ -68,7 +68,7 @@ export function BookingFields({
             className={inputClass}
           />
         </label>
-        <label className="text-[11px] font-medium text-slate-400">
+        <label className="text-sm font-medium text-slate-400">
           Cover until
           <input
             type="time"
@@ -78,7 +78,7 @@ export function BookingFields({
           />
         </label>
       </div>
-      <label className="text-[11px] font-medium text-slate-400">
+      <label className="text-sm font-medium text-slate-400">
         Company name
         <input
           type="text"
@@ -88,7 +88,7 @@ export function BookingFields({
           className={inputClass}
         />
       </label>
-      <label className="text-[11px] font-medium text-slate-400">
+      <label className="text-sm font-medium text-slate-400">
         Media coverage requirements
         <textarea
           value={value.requirements}
@@ -116,31 +116,31 @@ export function BookingActions({
     : "bg-white !text-slate-950 hover:bg-amber-100";
 
   return (
-    <div className="mt-3 grid grid-cols-2 gap-1.5">
+    <div className="mt-3 grid grid-cols-2 gap-2">
       <a
         href={mailtoHref(subject, body)}
-        className="inline-flex items-center justify-center gap-1.5 rounded-full border border-white/15 px-2 py-2 text-center text-[11px] font-semibold leading-tight !text-white hover:border-amber-400/40"
+        className="inline-flex items-center justify-center gap-1.5 rounded-full border border-white/15 px-3 py-2.5 text-center text-sm font-semibold leading-tight !text-white hover:border-amber-400/40"
       >
-        <Mail className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
+        <Mail className="h-4 w-4 shrink-0" aria-hidden="true" />
         Send via email
       </a>
       <a
         href={whatsappHref(body)}
         target="_blank"
         rel="noopener noreferrer"
-        className={`inline-flex items-center justify-center gap-1.5 rounded-full px-2 py-2 text-center text-[11px] font-semibold leading-tight transition-colors ${whatsappClass}`}
+        className={`inline-flex items-center justify-center gap-1.5 rounded-full px-3 py-2.5 text-center text-sm font-semibold leading-tight transition-colors ${whatsappClass}`}
       >
-        <MessageCircle className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
+        <MessageCircle className="h-4 w-4 shrink-0" aria-hidden="true" />
         Instant WhatsApp
       </a>
       <a
         href={paymentHref(subject)}
         target="_blank"
         rel="noopener noreferrer"
-        className="col-span-2 inline-flex items-center justify-center gap-1.5 rounded-full border border-amber-400/40 bg-amber-400/10 px-2 py-2 text-center text-[11px] font-semibold leading-tight !text-amber-200 hover:bg-amber-400/20"
+        className="col-span-2 inline-flex items-center justify-center gap-1.5 rounded-full border border-amber-400/40 bg-amber-400/10 px-3 py-2.5 text-center text-sm font-semibold leading-tight !text-amber-200 hover:bg-amber-400/20"
       >
-        <CreditCard className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
-        Pay · Stripe / Apple Pay / Google Pay
+        <CreditCard className="h-4 w-4 shrink-0" aria-hidden="true" />
+        Pay & Book Now
       </a>
     </div>
   );

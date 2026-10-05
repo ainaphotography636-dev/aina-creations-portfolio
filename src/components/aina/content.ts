@@ -1,20 +1,12 @@
 export const WHATSAPP_NUMBER = "971521251320";
 export const WHATSAPP_DISPLAY = "+971521251320";
-export const BOOKING_EMAIL = "example@gmail.com";
+export const BOOKING_EMAIL = "info@ainaphotography.com";
 
 /**
  * Paste your Stripe Payment Link (Dashboard → Payment Links).
- * One link can accept cards, Apple Pay, and Google Pay when enabled in Stripe.
  */
 export const STRIPE_PAYMENT_LINK =
   process.env.NEXT_PUBLIC_STRIPE_PAYMENT_LINK?.trim() || "";
-
-export const paymentMethods = [
-  { name: "Stripe", detail: "Secure checkout" },
-  { name: "Apple Pay", detail: "iPhone & Mac" },
-  { name: "Google Pay", detail: "Android & Chrome" },
-  { name: "Visa / Mastercard", detail: "Debit & credit" },
-] as const;
 
 export function whatsappHref(message: string) {
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
@@ -30,7 +22,7 @@ export function paymentHref(context?: string) {
   const message = [
     "Hello Aina Creations LLC, I am ready to pay for exhibition media coverage.",
     context ? `Booking: ${context}` : "",
-    "Please send a Stripe payment link (Apple Pay / Google Pay / card).",
+    "Please send a Stripe payment link.",
   ]
     .filter(Boolean)
     .join("\n");
@@ -54,7 +46,6 @@ const PER_AED = [
   { code: "GBP", rate: 0.2063 },
   { code: "EUR", rate: 0.2421 },
   { code: "CNY", rate: 1.8257 },
-  { code: "SAR", rate: 1.023 },
 ] as const;
 
 export function foreignPrices(aed: number) {
@@ -68,7 +59,6 @@ export const navLinks = [
   { label: "Who we are", href: "#about" },
   { label: "Gallery", href: "#gallery" },
   { label: "Packages", href: "#packages" },
-  { label: "Pay", href: "#payment" },
 ] as const;
 
 export type PackageTier = {
@@ -96,9 +86,9 @@ export const packages: PackageTier[] = [
     name: "The Pro Exhibitor Suite",
     price: 2500,
     popular: true,
-    blurb: "Half-day coverage with same-day files for social.",
+    blurb: "Half-day (3-4 hours) coverage with same-day files for social.",
     features: [
-      "Half-day coverage",
+      "Half-day (3-4 hours) coverage",
       "1 photographer + 1 videographer",
       "60 edited + all unedited photos",
       "1-2 min video highlights + raw video clips",
@@ -108,9 +98,9 @@ export const packages: PackageTier[] = [
   {
     name: "Ultimate Trade Show Takeover",
     price: 3900,
-    blurb: "Full-day coverage, posted the same day your stand is live.",
+    blurb: "Full-day (6-8 hour) coverage, posted the same day your stand is live.",
     features: [
-      "Full-day coverage",
+      "Full-day (6-8 hour) coverage",
       "1 photographer + 1 videographer",
       "80 edited + all unedited photos",
       "1-2 min highlights",

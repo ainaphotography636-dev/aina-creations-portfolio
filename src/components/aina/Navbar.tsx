@@ -1,8 +1,14 @@
 "use client";
 
-import { Menu, MessageCircle, X } from "lucide-react";
+import { Mail, Menu, MessageCircle, X } from "lucide-react";
 import { useState } from "react";
-import { WHATSAPP_DISPLAY, generalBookingMessage, navLinks, whatsappHref } from "./content";
+import {
+  BOOKING_EMAIL,
+  generalBookingMessage,
+  mailtoHref,
+  navLinks,
+  whatsappHref,
+} from "./content";
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
@@ -41,14 +47,24 @@ export function Navbar() {
 
         <div className="flex items-center gap-2">
           <a
+            href={mailtoHref(
+              "Exhibition media enquiry",
+              generalBookingMessage,
+            )}
+            aria-label={`Email ${BOOKING_EMAIL}`}
+            className="inline-flex items-center gap-1.5 rounded-full border border-white/15 px-3 py-1.5 text-xs font-semibold !text-white transition-colors hover:border-amber-400/50 hover:bg-white/5"
+          >
+            <Mail className="h-4 w-4" aria-hidden="true" />
+            Email
+          </a>
+          <a
             href={whatsappHref(generalBookingMessage)}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-1.5 rounded-full bg-amber-400 px-3 py-1.5 text-xs font-semibold !text-slate-950 transition-colors hover:bg-amber-300"
           >
             <MessageCircle className="h-4 w-4" aria-hidden="true" />
-            <span className="hidden sm:inline">WhatsApp {WHATSAPP_DISPLAY}</span>
-            <span className="sm:hidden">{WHATSAPP_DISPLAY}</span>
+            WhatsApp
           </a>
           <button
             type="button"

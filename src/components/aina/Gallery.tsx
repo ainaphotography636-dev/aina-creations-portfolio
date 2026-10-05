@@ -1,25 +1,32 @@
 "use client";
 
 import { ChevronLeft, ChevronRight, Expand, Volume2, VolumeX, X } from "lucide-react";
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { AutoplayVideo } from "./AutoplayVideo";
 import { SectionHeading } from "./SectionHeading";
 import {
   type Clip,
+  type GalleryPhoto,
+  galleryPhotos,
   horizontalClips,
   reelClips,
 } from "./galleryVideos";
 
 export function Gallery() {
   const [active, setActive] = useState<Clip | null>(null);
+  const [activePhoto, setActivePhoto] = useState<GalleryPhoto | null>(null);
   const [activeMuted, setActiveMuted] = useState(true);
   const activeVideoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
-    if (!active) return;
+    if (!active && !activePhoto) return;
     setActiveMuted(true);
     const onKey = (event: KeyboardEvent) => {
-      if (event.key === "Escape") setActive(null);
+      if (event.key === "Escape") {
+        setActive(null);
+        setActivePhoto(null);
+      }
     };
     document.body.style.overflow = "hidden";
     window.addEventListener("keydown", onKey);
@@ -27,7 +34,7 @@ export function Gallery() {
       document.body.style.overflow = "";
       window.removeEventListener("keydown", onKey);
     };
-  }, [active]);
+  }, [active, activePhoto]);
 
   return (
     <section id="gallery" className="scroll-mt-16 border-t border-white/10">
@@ -37,11 +44,18 @@ export function Gallery() {
             large
             eyebrow="Sample work"
             title="Formats exhibitors publish."
-            body="Small previews first. Tap any clip to enlarge and check if it fits your stand."
+            body="Small previews first. Tap any clip or photo to enlarge and check if it fits your stand."
           />
         </div>
 
         <div className="mt-5 space-y-6">
+          <PhotoCarousel
+            label="Exhibition photos"
+            sizeLabel="Still photography"
+            hint="1 row · slide to browse · tap to enlarge"
+            photos={galleryPhotos}
+            onOpen={setActivePhoto}
+          />
           <ClipCarousel
             label="Vertical Instagram reels"
             sizeLabel="9:16 · 1080×1920"
@@ -60,6 +74,46 @@ export function Gallery() {
           />
         </div>
       </div>
+
+      {activePhoto ? (
+        <div
+          className="fixed inset-0 z-[80] flex items-center justify-center bg-slate-950/90 p-4 backdrop-blur-sm"
+          role="dialog"
+          aria-modal="true"
+          aria-label={activePhoto.title}
+          onClick={() => setActivePhoto(null)}
+        >
+          <button
+            type="button"
+            aria-label="Close photo"
+            className="absolute top-4 right-4 inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/15 bg-slate-900/80 text-white hover:bg-slate-800"
+            onClick={() => setActivePhoto(null)}
+          >
+            <X className="h-5 w-5" />
+          </button>
+          <div
+            className="aina-media-protect relative max-h-[85vh] w-full max-w-4xl overflow-hidden rounded-xl border border-white/15 bg-black shadow-2xl"
+            onClick={(event) => event.stopPropagation()}
+            onContextMenu={(event) => event.preventDefault()}
+          >
+            <div className="relative aspect-[3/2] w-full sm:aspect-[16/10]">
+              <Image
+                src={activePhoto.src}
+                alt={activePhoto.title}
+                fill
+                unoptimized
+                draggable={false}
+                sizes="(min-width: 1024px) 896px, 100vw"
+                className="aina-media-protect object-contain"
+                onContextMenu={(event) => event.preventDefault()}
+              />
+            </div>
+            <p className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/90 to-transparent px-3 py-2 text-sm font-medium text-white">
+              {activePhoto.title}
+            </p>
+          </div>
+        </div>
+      ) : null}
 
       {active ? (
         <div
@@ -129,6 +183,146 @@ export function Gallery() {
         </div>
       ) : null}
     </section>
+  );
+}
+
+function PhotoCarousel({
+  label,
+  sizeLabel,
+  hint,
+  photos,
+  onOpen,
+}: {
+  label: string;
+  sizeLabel: string;
+  hint: string;
+  photos: GalleryPhoto[];
+  onOpen: (photo: GalleryPhoto) => void;
+}) {
+  const [perPage, setPerPage] = useState(4);
+  const [page, setPage] = useState(0);
+
+  useEffect(() => {
+    const update = () => {
+      if (window.innerWidth >= 900) setPerPage(4);
+      else if (window.innerWidth >= 560) setPerPage(3);
+      else setPerPage(2);
+    };
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
+  }, []);
+
+  const pageCount = Math.max(1, Math.ceil(photos.length / perPage));
+  const safePage = Math.min(page, pageCount - 1);
+  const visible = photos.slice(safePage * perPage, safePage * perPage + perPage);
+
+  useEffect(() => {
+    if (page > pageCount - 1) setPage(pageCount - 1);
+  }, [page, pageCount]);
+
+  const go = (next: number) => {
+    setPage(((next % pageCount) + pageCount) % pageCount);
+  };
+
+  return (
+    <div>
+      <div className="mb-3 flex flex-col items-center gap-2 text-center md:flex-row md:items-center md:justify-between md:text-left">
+        <div className="min-w-0">
+          <p className="text-sm font-semibold tracking-[0.12em] text-amber-300 uppercase">
+            {label}
+          </p>
+          <p className="mt-1 text-sm font-medium text-white">
+            Size: {sizeLabel}
+          </p>
+          <p className="mt-0.5 text-[11px] text-slate-500">{hint}</p>
+        </div>
+        {pageCount > 1 ? (
+          <div className="flex shrink-0 items-center gap-1.5">
+            <button
+              type="button"
+              aria-label="Previous photos"
+              onClick={() => go(safePage - 1)}
+              className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-slate-700 bg-slate-800/80 text-slate-300 hover:text-white"
+            >
+              <ChevronLeft className="h-4 w-4" />
+            </button>
+            <p className="min-w-10 text-center text-[11px] tabular-nums text-slate-400">
+              {safePage + 1}/{pageCount}
+            </p>
+            <button
+              type="button"
+              aria-label="Next photos"
+              onClick={() => go(safePage + 1)}
+              className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-slate-700 bg-slate-800/80 text-slate-300 hover:text-white"
+            >
+              <ChevronRight className="h-4 w-4" />
+            </button>
+          </div>
+        ) : null}
+      </div>
+
+      <div
+        key={safePage}
+        className="aina-photo-slide grid gap-2"
+        style={{ gridTemplateColumns: `repeat(${perPage}, minmax(0, 1fr))` }}
+      >
+        {visible.map((photo) => (
+          <div
+            key={photo.id}
+            role="button"
+            tabIndex={0}
+            aria-label={`Enlarge ${photo.title}`}
+            onClick={() => onOpen(photo)}
+            onKeyDown={(event) => {
+              if (event.key === "Enter" || event.key === " ") {
+                event.preventDefault();
+                onOpen(photo);
+              }
+            }}
+            onContextMenu={(event) => event.preventDefault()}
+            className="aina-media-protect group relative aspect-[4/3] w-full cursor-pointer overflow-hidden rounded-lg border border-white/10 bg-slate-900 text-left transition-colors hover:border-amber-400/40"
+          >
+            <Image
+              src={photo.src}
+              alt={photo.title}
+              fill
+              unoptimized
+              draggable={false}
+              sizes="(min-width: 900px) 25vw, (min-width: 560px) 33vw, 50vw"
+              className="aina-media-protect object-cover"
+              onContextMenu={(event) => event.preventDefault()}
+            />
+            <span className="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
+            <span className="pointer-events-none absolute top-1.5 right-1.5 inline-flex h-6 w-6 items-center justify-center rounded-full border border-white/15 bg-slate-950/70 text-white opacity-80 group-hover:opacity-100">
+              <Expand className="h-3 w-3" aria-hidden="true" />
+            </span>
+            <span className="pointer-events-none absolute inset-x-0 bottom-0 truncate px-1.5 py-1.5 text-[11px] font-medium text-white">
+              {photo.title}
+            </span>
+          </div>
+        ))}
+      </div>
+
+      {pageCount > 1 ? (
+        <div className="mt-2 flex items-center justify-center gap-1.5">
+          {Array.from({ length: pageCount }, (_, index) => (
+            <button
+              key={index}
+              type="button"
+              aria-label={`Show photo set ${index + 1}`}
+              aria-current={index === safePage ? "true" : undefined}
+              onClick={() => setPage(index)}
+              className={`h-1.5 rounded-full transition-all ${
+                index === safePage
+                  ? "w-5 bg-amber-300"
+                  : "w-1.5 bg-slate-600 hover:bg-slate-400"
+              }`}
+            />
+          ))}
+        </div>
+      ) : null}
+    </div>
   );
 }
 

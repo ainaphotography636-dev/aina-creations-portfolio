@@ -10,7 +10,7 @@ export function Packages() {
         <SectionHeading
           eyebrow="Packages"
           title="Coverage, priced in AED."
-          body="Same-day output for social while your DWTC stand is live. Add date, timing, and company, then email, WhatsApp, or pay by Stripe / Apple Pay."
+          body="Same-day output for social while your DWTC stand is live. Add date, timing, and company, then email, WhatsApp, or pay with Stripe."
         />
         <div className="mt-4 grid items-stretch gap-2 lg:grid-cols-3">
           {packages.map((tier) => (
