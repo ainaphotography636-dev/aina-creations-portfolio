@@ -55,7 +55,7 @@ export const galleryPhotos: GalleryPhoto[] = [
 /** Prefer the lighter mp4; skip the duplicate 0130.mov. */
 export const reelClips: Clip[] = [
   clip("0130.mp4", "vertical", "Exhibition reel"),
-  clip("0924.mp4", "vertical", "Stand coverage reel"),
+  clip("0129.mov", "vertical", "Stand coverage reel"),
   clip("acs25.mov", "vertical", "Event reel"),
   clip("day3.mov", "vertical", "Floor reel"),
   clip("Prie.mov", "vertical", "Prime reel"),
@@ -63,7 +63,6 @@ export const reelClips: Clip[] = [
   clip("reel prime.mov", "vertical", "Reel prime"),
   clip("reel 1 gf.mov", "vertical", "Reel 1"),
   clip("reel3 gff.mov", "vertical", "Reel 3"),
-  clip("reel4.mov", "vertical", "Reel 4"),
   clip("reel 5 gf.mov", "vertical", "Reel 5"),
   clip(
     "Technology & Innovation in food safety reel.mov",
@@ -74,9 +73,7 @@ export const reelClips: Clip[] = [
 
 export const horizontalClips: Clip[] = [
   clip("Ardeco day1.mov", "horizontal", "Ardeco day 1"),
-  clip("Dynatrade3.mov", "horizontal", "Dynatrade 3"),
   clip("dynatrade 1.mov", "horizontal", "Dynatrade 1"),
-  clip("dynatradeevent2.mov", "horizontal", "Dynatrade event 2"),
   clip("Vinno @ Arab Health 2025.mp4", "horizontal", "Vinno Arab Health"),
   clip("sprint 1.mov", "horizontal", "Sprint 1"),
   clip("HIghlight1 GFF.mov", "horizontal", "Highlight GFF"),
