@@ -1,5 +1,10 @@
-import { MapPin, MessageCircle } from "lucide-react";
-import { WHATSAPP_DISPLAY, generalBookingMessage, whatsappHref } from "./content";
+import { Mail, MapPin, MessageCircle } from "lucide-react";
+import {
+  BOOKING_EMAIL,
+  generalBookingMessage,
+  mailtoHref,
+  whatsappHref,
+} from "./content";
 
 export function SiteFooter() {
   return (
@@ -28,13 +33,19 @@ export function SiteFooter() {
             <MapPin className="h-4 w-4 text-amber-300" aria-hidden="true" />
             Near Mall of the Emirates, Al Barsha, Dubai, United Arab Emirates
           </p>
-          <p className="mt-1 text-xs text-slate-300">
-            <a href={`tel:${WHATSAPP_DISPLAY}`} className="!text-slate-300 hover:!text-white">
-              {WHATSAPP_DISPLAY}
-            </a>
-          </p>
         </div>
-        <div className="flex flex-col items-start gap-1 sm:items-end">
+        <div className="flex flex-col items-start gap-1.5 sm:items-end">
+          <a
+            href={mailtoHref(
+              "Exhibition media enquiry",
+              generalBookingMessage,
+            )}
+            aria-label={`Email ${BOOKING_EMAIL}`}
+            className="inline-flex items-center gap-2 text-sm font-medium !text-white hover:!text-amber-200"
+          >
+            <Mail className="h-4 w-4" aria-hidden="true" />
+            Email
+          </a>
           <a
             href={whatsappHref(generalBookingMessage)}
             target="_blank"
@@ -42,7 +53,7 @@ export function SiteFooter() {
             className="inline-flex items-center gap-2 text-sm font-medium !text-amber-300 hover:!text-amber-200"
           >
             <MessageCircle className="h-4 w-4" aria-hidden="true" />
-            WhatsApp {WHATSAPP_DISPLAY}
+            WhatsApp
           </a>
           <p className="m-0 text-xs text-slate-500">
             © {new Date().getFullYear()} Aina Creations LLC. All rights reserved.

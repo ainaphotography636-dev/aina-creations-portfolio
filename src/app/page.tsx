@@ -3,7 +3,6 @@ import { Gallery } from "@/components/aina/Gallery";
 import { Hero } from "@/components/aina/Hero";
 import { Navbar } from "@/components/aina/Navbar";
 import { Packages } from "@/components/aina/Packages";
-import { Payment } from "@/components/aina/Payment";
 import { SiteFooter } from "@/components/aina/SiteFooter";
 import { baseURL, home } from "@/resources";
 import { Meta } from "@once-ui-system/core";
@@ -28,7 +27,6 @@ export default function Home() {
         <About />
         <Gallery />
         <Packages />
-        <Payment />
       </main>
       <SiteFooter />
     </div>

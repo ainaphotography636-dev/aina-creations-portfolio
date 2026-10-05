@@ -30,3 +30,18 @@
   -webkit-user-drag: none;
   user-drag: none;
 }
+
+@keyframes aina-photo-slide {
+  from {
+    opacity: 0.55;
+    transform: translateX(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.aina-photo-slide {
+  animation: aina-photo-slide 0.35s ease-out;
+}
