@@ -57,9 +57,8 @@ export function foreignPrices(aed: number) {
 }
 
 export const navLinks = [
-  { label: "Who we are", href: "#about" },
-  { label: "Gallery", href: "#gallery" },
-  { label: "Packages", href: "#packages" },
+  { label: "Sample work", href: "#gallery" },
+  { label: "Photo & Video Packages", href: "#packages" },
 ] as const;
 
 export type PackageTier = {
