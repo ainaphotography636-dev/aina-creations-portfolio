@@ -15,14 +15,14 @@ export function Hero() {
         <div>
           <p className="inline-flex items-center gap-1.5 rounded-full border border-amber-400/30 bg-amber-400/10 px-2.5 py-0.5 text-[11px] font-medium tracking-[0.14em] text-amber-200 uppercase">
             <MapPin className="h-3 w-3" aria-hidden="true" />
-            Dubai World Trade Centre
+            Dubai-based media company
           </p>
           <h1 className="mt-3 max-w-2xl text-3xl font-semibold tracking-tight text-white text-balance sm:text-4xl sm:leading-[1.1]">
             Capture Your DWTC Exhibition in Real-Time: Same-Day Media While Your Stand Is Live.
           </h1>
           <p className="mt-2 max-w-2xl text-sm leading-snug text-slate-400">
-            Elite photo and video production for international exhibitors at DWTC with guaranteed
-            same-day output delivery.
+            Aina Creations LLC is a Dubai-based media company delivering elite photo and video
+            for international exhibitors at DWTC—with guaranteed same-day output.
           </p>
           <div className="mt-4 flex flex-col gap-2 sm:flex-row">
             <a

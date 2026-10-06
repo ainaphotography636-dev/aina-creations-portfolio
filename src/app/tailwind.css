@@ -42,6 +42,19 @@
   }
 }
 
-.aina-photo-slide {
-  animation: aina-photo-slide 0.35s ease-out;
+/* Gallery section titles — shared size for photos, reels, YouTube */
+.aina-gallery-heading {
+  margin: 0;
+  font-size: 1.5rem;
+  line-height: 1.25;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgb(252 211 77);
+}
+
+@media (min-width: 640px) {
+  .aina-gallery-heading {
+    font-size: 1.875rem;
+  }
 }

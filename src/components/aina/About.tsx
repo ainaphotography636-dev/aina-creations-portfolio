@@ -25,14 +25,14 @@ export function About() {
       <div className="mx-auto max-w-6xl px-5 py-8">
         <SectionHeading
           eyebrow="Who we are"
-          title="Exhibition media for global brands."
+          title="A Dubai-based media company for global brands."
         />
         <div className="mt-3 max-w-3xl space-y-3 text-sm leading-relaxed text-slate-400 sm:text-[15px]">
           <p>
-            Licensed in the UAE (License No: 2431667.01), Aina Creations LLC
-            specializes in elite media production tailored for international
-            exhibitors, corporate giants, and global brands participating at
-            major venues like the Dubai World Trade Centre (DWTC).
+            Licensed in the UAE (License No: 2431667.01), Aina Creations LLC is a
+            Dubai-based media company specializing in elite media production for
+            international exhibitors, corporate giants, and global brands at major
+            venues like the Dubai World Trade Centre (DWTC).
           </p>
           <p>
             We bridge the gap between high-end commercial storytelling and
