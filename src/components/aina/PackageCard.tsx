@@ -34,7 +34,7 @@ export function PackageCard({ tier }: { tier: PackageTier }) {
       <p className="mt-1 text-xl font-semibold tracking-tight text-white sm:text-2xl">
         {formatAed(tier.price)}
       </p>
-      <ul className="mt-1 flex flex-wrap gap-x-2.5 gap-y-1 text-xs leading-5 text-slate-400 sm:text-sm">
+      <ul className="mt-1.5 flex flex-wrap gap-x-3 gap-y-1.5 text-sm font-medium leading-6 text-slate-300 sm:text-base">
         {foreignPrices(tier.price).map((label) => (
           <li key={label} className="whitespace-nowrap">
             {label}
