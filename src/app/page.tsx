@@ -11,7 +11,7 @@ export async function generateMetadata() {
   return Meta.generate({
     title: "Aina Creations LLC, Dubai",
     description:
-      "Fast exhibition photography, social reels, and interview clips for international exhibitors at the Dubai World Trade Centre. Same-day photos and next-day video.",
+      "Aina Creations LLC is a Dubai-based media company offering exhibition photography, social reels, and interview clips for international exhibitors at the Dubai World Trade Centre. Same-day output while your stand is live.",
     baseURL: baseURL,
     path: home.path,
     image: home.image,

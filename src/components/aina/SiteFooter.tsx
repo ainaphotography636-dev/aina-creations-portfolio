@@ -27,7 +27,8 @@ export function SiteFooter() {
             </p>
           </div>
           <p className="mt-3 text-xs leading-snug text-slate-400">
-            Same-day photo and video so you can post while your DWTC stand is live.
+            Dubai-based media company. Same-day photo and video so you can post while your DWTC
+            stand is live.
           </p>
           <p className="mt-2 inline-flex items-center gap-1.5 text-xs text-slate-300">
             <MapPin className="h-4 w-4 text-amber-300" aria-hidden="true" />

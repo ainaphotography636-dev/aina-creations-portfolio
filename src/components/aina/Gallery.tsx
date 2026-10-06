@@ -229,10 +229,10 @@ function PhotoCarousel({
     <div>
       <div className="mb-3 flex flex-col items-center gap-2 text-center md:flex-row md:items-center md:justify-between md:text-left">
         <div className="min-w-0">
-          <p className="text-sm font-semibold tracking-[0.12em] text-amber-300 uppercase">
+          <h3 className="aina-gallery-heading">
             {label}
-          </p>
-          <p className="mt-1 text-sm font-medium text-white">
+          </h3>
+          <p className="mt-1 text-sm font-medium text-white sm:text-base">
             Size: {sizeLabel}
           </p>
           <p className="mt-0.5 text-[11px] text-slate-500">{hint}</p>
@@ -375,10 +375,10 @@ function ClipCarousel({
     <div>
       <div className="mb-3 flex flex-col items-center gap-2 text-center md:flex-row md:items-center md:justify-between md:text-left">
         <div className="min-w-0">
-          <p className="text-sm font-semibold tracking-[0.12em] text-amber-300 uppercase">
+          <h3 className="aina-gallery-heading">
             {label}
-          </p>
-          <p className="mt-1 text-sm font-medium text-white">
+          </h3>
+          <p className="mt-1 text-sm font-medium text-white sm:text-base">
             Size: {sizeLabel}
           </p>
           <p className="mt-0.5 text-[11px] text-slate-500">{hint}</p>
