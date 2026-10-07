@@ -4,41 +4,47 @@ import { Hero } from "@/components/aina/Hero";
 import { Navbar } from "@/components/aina/Navbar";
 import { Packages } from "@/components/aina/Packages";
 import { SiteFooter } from "@/components/aina/SiteFooter";
+import {
+  OG_IMAGE_ALT,
+  OG_IMAGE_HEIGHT,
+  OG_IMAGE_URL,
+  OG_IMAGE_WIDTH,
+  SITE_DESCRIPTION,
+  SITE_NAME,
+  SITE_TITLE,
+  SITE_URL,
+} from "@/components/aina/siteMeta";
 import type { Metadata } from "next";
 
-const siteUrl = "https://www.ainacreationsllc.com";
-const ogImage = `${siteUrl}/preview-banner.jpg`;
-const siteTitle = "Aina Creations LLC - Exhibition Photography Dubai";
-const siteDescription =
-  "Professional exhibition photography, social reels, and media packages for international exhibitors at DWTC.";
-
 export const metadata: Metadata = {
-  title: siteTitle,
-  description: siteDescription,
+  title: SITE_TITLE,
+  description: SITE_DESCRIPTION,
   alternates: {
-    canonical: siteUrl,
+    canonical: SITE_URL,
   },
   openGraph: {
-    title: siteTitle,
-    description: siteDescription,
-    url: siteUrl,
-    siteName: "Aina Creations LLC",
-    locale: "en_AE",
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+    url: SITE_URL,
+    siteName: SITE_NAME,
+    locale: "en_US",
     type: "website",
     images: [
       {
-        url: ogImage,
-        width: 1200,
-        height: 630,
-        alt: "Aina Creations LLC — Exhibition photography and media in Dubai",
+        url: OG_IMAGE_URL,
+        secureUrl: OG_IMAGE_URL,
+        width: OG_IMAGE_WIDTH,
+        height: OG_IMAGE_HEIGHT,
+        alt: OG_IMAGE_ALT,
+        type: "image/jpeg",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: siteTitle,
-    description: siteDescription,
-    images: [ogImage],
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+    images: [OG_IMAGE_URL],
   },
 };
 

@@ -10,6 +10,16 @@ import type { Metadata } from "next";
 import { Providers } from "@/components";
 import { PageShell } from "@/components/PageShell";
 import { PortfolioFooter } from "@/components/PortfolioFooter";
+import {
+  OG_IMAGE_ALT,
+  OG_IMAGE_HEIGHT,
+  OG_IMAGE_URL,
+  OG_IMAGE_WIDTH,
+  SITE_DESCRIPTION,
+  SITE_NAME,
+  SITE_TITLE,
+  SITE_URL,
+} from "@/components/aina/siteMeta";
 import { dataStyle, effects, fonts, person, style } from "@/resources";
 import {
   Background,
@@ -20,43 +30,42 @@ import {
   type opacity,
 } from "@once-ui-system/core";
 
-const siteUrl = "https://www.ainacreationsllc.com";
-const ogImage = `${siteUrl}/preview-banner.jpg`;
-const siteTitle = "Aina Creations LLC - Exhibition Photography Dubai";
-const siteDescription =
-  "Professional exhibition photography, social reels, and media packages for international exhibitors at DWTC.";
-
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
+  metadataBase: new URL(SITE_URL),
   title: {
-    default: siteTitle,
-    template: "%s | Aina Creations LLC",
+    default: SITE_TITLE,
+    template: `%s | ${SITE_NAME}`,
   },
-  description: siteDescription,
+  description: SITE_DESCRIPTION,
   alternates: {
-    canonical: siteUrl,
+    canonical: SITE_URL,
   },
   openGraph: {
-    title: siteTitle,
-    description: siteDescription,
-    url: siteUrl,
-    siteName: "Aina Creations LLC",
-    locale: "en_AE",
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+    url: SITE_URL,
+    siteName: SITE_NAME,
+    locale: "en_US",
     type: "website",
     images: [
       {
-        url: ogImage,
-        width: 1200,
-        height: 630,
-        alt: "Aina Creations LLC — Exhibition photography and media in Dubai",
+        url: OG_IMAGE_URL,
+        secureUrl: OG_IMAGE_URL,
+        width: OG_IMAGE_WIDTH,
+        height: OG_IMAGE_HEIGHT,
+        alt: OG_IMAGE_ALT,
+        type: "image/jpeg",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: siteTitle,
-    description: siteDescription,
-    images: [ogImage],
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+    images: [OG_IMAGE_URL],
+  },
+  other: {
+    "og:image:secure_url": OG_IMAGE_URL,
   },
 };
 

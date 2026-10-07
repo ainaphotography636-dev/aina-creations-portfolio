@@ -5,6 +5,15 @@ export default function robots() {
     rules: [
       {
         userAgent: "*",
+        allow: "/",
+      },
+      {
+        userAgent: "WhatsApp",
+        allow: "/",
+      },
+      {
+        userAgent: "facebookexternalhit",
+        allow: "/",
       },
     ],
     sitemap: `${baseURL}/sitemap.xml`,
