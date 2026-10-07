@@ -4,19 +4,43 @@ import { Hero } from "@/components/aina/Hero";
 import { Navbar } from "@/components/aina/Navbar";
 import { Packages } from "@/components/aina/Packages";
 import { SiteFooter } from "@/components/aina/SiteFooter";
-import { baseURL, home } from "@/resources";
-import { Meta } from "@once-ui-system/core";
+import type { Metadata } from "next";
 
-export async function generateMetadata() {
-  return Meta.generate({
-    title: "Aina Creations LLC, Dubai",
-    description:
-      "Aina Creations LLC is a Dubai-based media company offering exhibition photography, social reels, and interview clips for international exhibitors at the Dubai World Trade Centre. Same-day output while your stand is live.",
-    baseURL: baseURL,
-    path: home.path,
-    image: home.image,
-  });
-}
+const siteUrl = "https://www.ainacreationsllc.com";
+const ogImage = `${siteUrl}/preview-banner.jpg`;
+const siteTitle = "Aina Creations LLC - Exhibition Photography Dubai";
+const siteDescription =
+  "Professional exhibition photography, social reels, and media packages for international exhibitors at DWTC.";
+
+export const metadata: Metadata = {
+  title: siteTitle,
+  description: siteDescription,
+  alternates: {
+    canonical: siteUrl,
+  },
+  openGraph: {
+    title: siteTitle,
+    description: siteDescription,
+    url: siteUrl,
+    siteName: "Aina Creations LLC",
+    locale: "en_AE",
+    type: "website",
+    images: [
+      {
+        url: ogImage,
+        width: 1200,
+        height: 630,
+        alt: "Aina Creations LLC — Exhibition photography and media in Dubai",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteTitle,
+    description: siteDescription,
+    images: [ogImage],
+  },
+};
 
 export default function Home() {
   return (

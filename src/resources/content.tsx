@@ -57,10 +57,11 @@ const social: Social = [
 
 const home: Home = {
   path: "/",
-  image: "/images/og/home.jpg",
+  image: "/preview-banner.jpg",
   label: "Home",
-  title: `${person.name}'s Portfolio`,
-  description: `Portfolio website showcasing my work as a ${person.role}`,
+  title: "Aina Creations LLC - Exhibition Photography Dubai",
+  description:
+    "Professional exhibition photography, social reels, and media packages for international exhibitors at DWTC.",
   headline: <>Building bridges between design and code</>,
   featured: {
     display: true,
