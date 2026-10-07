@@ -5,30 +5,60 @@ import "./tailwind.css";
 
 import classNames from "classnames";
 import { Analytics } from "@vercel/analytics/react";
+import type { Metadata } from "next";
 
 import { Providers } from "@/components";
 import { PageShell } from "@/components/PageShell";
 import { PortfolioFooter } from "@/components/PortfolioFooter";
-import { baseURL, dataStyle, effects, fonts, home, person, style } from "@/resources";
+import { dataStyle, effects, fonts, person, style } from "@/resources";
 import {
   Background,
   Column,
   Flex,
-  Meta,
   RevealFx,
   type SpacingToken,
   type opacity,
 } from "@once-ui-system/core";
 
-export async function generateMetadata() {
-  return Meta.generate({
-    title: home.title,
-    description: home.description,
-    baseURL: baseURL,
-    path: home.path,
-    image: home.image,
-  });
-}
+const siteUrl = "https://www.ainacreationsllc.com";
+const ogImage = `${siteUrl}/preview-banner.jpg`;
+const siteTitle = "Aina Creations LLC - Exhibition Photography Dubai";
+const siteDescription =
+  "Professional exhibition photography, social reels, and media packages for international exhibitors at DWTC.";
+
+export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: siteTitle,
+    template: "%s | Aina Creations LLC",
+  },
+  description: siteDescription,
+  alternates: {
+    canonical: siteUrl,
+  },
+  openGraph: {
+    title: siteTitle,
+    description: siteDescription,
+    url: siteUrl,
+    siteName: "Aina Creations LLC",
+    locale: "en_AE",
+    type: "website",
+    images: [
+      {
+        url: ogImage,
+        width: 1200,
+        height: 630,
+        alt: "Aina Creations LLC — Exhibition photography and media in Dubai",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteTitle,
+    description: siteDescription,
+    images: [ogImage],
+  },
+};
 
 export default async function RootLayout({
   children,
