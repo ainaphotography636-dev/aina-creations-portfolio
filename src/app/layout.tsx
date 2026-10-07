@@ -4,6 +4,7 @@ import "@/resources/custom.css";
 import "./tailwind.css";
 
 import classNames from "classnames";
+import { Analytics } from "@vercel/analytics/react";
 
 import { Providers } from "@/components";
 import { PageShell } from "@/components/PageShell";
@@ -160,6 +161,7 @@ export default async function RootLayout({
           </RevealFx>
           <PageShell>{children}</PageShell>
           <PortfolioFooter />
+          <Analytics />
         </Column>
       </Providers>
     </Flex>
