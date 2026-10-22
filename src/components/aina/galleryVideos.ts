@@ -12,8 +12,11 @@ export type GalleryPhoto = {
   src: string;
 };
 
-/** Public Cloudflare R2 custom domain. The browser streams these files directly. */
-export const MEDIA_BASE_URL = "https://media.ainacreationsllc.com";
+/**
+ * Direct R2 development URL. media.ainacreationsllc.com is still routed to
+ * Vercel, so the custom domain 404s until that DNS record serves the bucket.
+ */
+export const MEDIA_BASE_URL = "https://pub-ab0998a4fe7f4f52be6a61debd869993.r2.dev";
 
 function mediaSrc(path: string) {
   return `${MEDIA_BASE_URL}/${path}`;

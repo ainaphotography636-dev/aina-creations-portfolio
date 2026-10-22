@@ -18,7 +18,7 @@ const nextConfig = {
       },
       {
         protocol: "https",
-        hostname: "media.ainacreationsllc.com",
+        hostname: "pub-ab0998a4fe7f4f52be6a61debd869993.r2.dev",
         pathname: "/**",
       },
     ],
