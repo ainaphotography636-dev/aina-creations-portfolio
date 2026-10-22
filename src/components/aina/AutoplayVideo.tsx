@@ -55,6 +55,8 @@ export function AutoplayVideo({
         loop
         playsInline
         preload={preload}
+        controlsList="nodownload noplaybackrate"
+        disablePictureInPicture
         draggable={false}
         onContextMenu={(event) => event.preventDefault()}
         aria-label={ariaLabel}

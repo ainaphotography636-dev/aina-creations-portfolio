@@ -148,6 +148,8 @@ export function Gallery() {
               muted={activeMuted}
               loop
               playsInline
+              controlsList="nodownload noplaybackrate"
+              disablePictureInPicture
               draggable={false}
               className="aina-media-protect h-full w-full object-contain"
               onContextMenu={(event) => event.preventDefault()}

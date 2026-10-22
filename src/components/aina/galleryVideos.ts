@@ -18,11 +18,7 @@ function mediaSrc(path: string) {
   return `${MEDIA_BASE_URL}/${path}`;
 }
 
-function clip(
-  filename: string,
-  orientation: "vertical" | "horizontal",
-  title?: string,
-): Clip {
+function clip(filename: string, orientation: "vertical" | "horizontal", title?: string): Clip {
   const src = mediaSrc(`Videos/${encodeURIComponent(filename)}`);
   const fallback = filename
     .replace(/\.(mp4|mov|webm|m4v)$/i, "")
@@ -41,11 +37,11 @@ function photo(filename: string, title: string): GalleryPhoto {
   return {
     id: `photo-${filename}`,
     title,
-    src: mediaSrc(`images/gallery/${encodeURIComponent(filename)}`),
+    src: mediaSrc(encodeURIComponent(filename)),
   };
 }
 
-/** Still photos on Cloudflare R2 — one-row slider above reels. */
+/** Still photos at the R2 bucket root — one-row slider above reels. */
 export const galleryPhotos: GalleryPhoto[] = [
   photo("DSC04629.jpg", "Exhibition floor"),
   photo("DSC04697.jpg", "Stand coverage"),
@@ -59,9 +55,8 @@ export const galleryPhotos: GalleryPhoto[] = [
   photo("GSK04395.jpg", "Stage moment"),
 ];
 
-/** Prefer the lighter mp4; skip the duplicate 0130.mov. */
+/** 0130.mp4 is not in the R2 bucket, so it is omitted until that file is uploaded. */
 export const reelClips: Clip[] = [
-  clip("0130.mp4", "vertical", "Exhibition reel"),
   clip("0129.mov", "vertical", "Stand coverage reel"),
   clip("acs25.mov", "vertical", "Event reel"),
   clip("day3.mov", "vertical", "Floor reel"),
@@ -71,11 +66,7 @@ export const reelClips: Clip[] = [
   clip("0128.mov", "vertical", "Reel 1"),
   clip("reel3 gff.mov", "vertical", "Reel 3"),
   clip("reel 5 gf.mov", "vertical", "Reel 5"),
-  clip(
-    "Technology & Innovation in food safety reel.mov",
-    "vertical",
-    "Food safety reel",
-  ),
+  clip("Technology & Innovation in food safety reel.mov", "vertical", "Food safety reel"),
 ];
 
 export const horizontalClips: Clip[] = [

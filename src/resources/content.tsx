@@ -1,4 +1,4 @@
-import { MEDIA_BASE_URL } from "@/components/aina/galleryVideos";
+import { galleryPhotos } from "@/components/aina/galleryVideos";
 import { About, Blog, Gallery, Home, Newsletter, Person, Social, Work } from "@/types";
 import { Line, Row, Text } from "@once-ui-system/core";
 
@@ -259,50 +259,11 @@ const gallery: Gallery = {
   label: "Gallery",
   title: `Photo gallery – ${person.name}`,
   description: `A photo collection by ${person.name}`,
-  // Images by https://lorant.one
-  // These are placeholder images, replace with your own
-  images: [
-    {
-      src: `${MEDIA_BASE_URL}/images/gallery/horizontal-1.jpg`,
-      alt: "image",
-      orientation: "horizontal",
-    },
-    {
-      src: `${MEDIA_BASE_URL}/images/gallery/vertical-4.jpg`,
-      alt: "image",
-      orientation: "vertical",
-    },
-    {
-      src: `${MEDIA_BASE_URL}/images/gallery/horizontal-3.jpg`,
-      alt: "image",
-      orientation: "horizontal",
-    },
-    {
-      src: `${MEDIA_BASE_URL}/images/gallery/vertical-1.jpg`,
-      alt: "image",
-      orientation: "vertical",
-    },
-    {
-      src: `${MEDIA_BASE_URL}/images/gallery/vertical-2.jpg`,
-      alt: "image",
-      orientation: "vertical",
-    },
-    {
-      src: `${MEDIA_BASE_URL}/images/gallery/horizontal-2.jpg`,
-      alt: "image",
-      orientation: "horizontal",
-    },
-    {
-      src: `${MEDIA_BASE_URL}/images/gallery/horizontal-4.jpg`,
-      alt: "image",
-      orientation: "horizontal",
-    },
-    {
-      src: `${MEDIA_BASE_URL}/images/gallery/vertical-3.jpg`,
-      alt: "image",
-      orientation: "vertical",
-    },
-  ],
+  images: galleryPhotos.map((photo) => ({
+    src: photo.src,
+    alt: photo.title,
+    orientation: "horizontal",
+  })),
 };
 
 export { person, social, newsletter, home, about, blog, work, gallery };
