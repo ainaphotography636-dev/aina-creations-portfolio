@@ -40,5 +40,16 @@ next-env.d.ts
 # macOS AppleDouble
 ._*
 
-# duplicate of 0130.mp4 (too large for GitHub)
-public/Videos/0130.mov
+# Local media copies. Gallery photos and videos are served from Cloudflare R2.
+# Keep the files on disk; do not commit them.
+public/videos/
+public/Videos/
+public/images/*
+public/images/**/*
+!public/images/aina-logo.png
+!public/images/aina-favicon.png
+!public/images/aina-apple-icon.png
+!public/images/hero-exhibition.jpg
+*.mov
+*.mp4
+*.avi

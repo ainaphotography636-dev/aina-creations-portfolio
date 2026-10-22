@@ -1,0 +1,13 @@
+# Keep local media off the Vercel upload. Gallery photos and videos are on Cloudflare R2.
+# Essential icons, the favicon, and the homepage hero stay in the deployment.
+public/videos/
+public/Videos/
+public/images/*
+public/images/**/*
+!public/images/aina-logo.png
+!public/images/aina-favicon.png
+!public/images/aina-apple-icon.png
+!public/images/hero-exhibition.jpg
+*.mov
+*.mp4
+*.avi
