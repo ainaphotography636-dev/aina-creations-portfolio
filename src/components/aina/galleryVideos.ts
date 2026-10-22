@@ -11,12 +11,19 @@ export type GalleryPhoto = {
   src: string;
 };
 
+/** Public Cloudflare R2 bucket. Gallery photos and videos are stored here, not in the repo. */
+export const MEDIA_BASE_URL = "https://pub-ab0998a4fe7f4f52be6a61debd869993.r2.dev";
+
+function mediaSrc(path: string) {
+  return `${MEDIA_BASE_URL}/${path}`;
+}
+
 function clip(
   filename: string,
   orientation: "vertical" | "horizontal",
   title?: string,
 ): Clip {
-  const src = `/Videos/${encodeURIComponent(filename)}`;
+  const src = mediaSrc(`Videos/${encodeURIComponent(filename)}`);
   const fallback = filename
     .replace(/\.(mp4|mov|webm|m4v)$/i, "")
     .replace(/[_@]+/g, " ")
@@ -34,11 +41,11 @@ function photo(filename: string, title: string): GalleryPhoto {
   return {
     id: `photo-${filename}`,
     title,
-    src: `/images/gallery/${encodeURIComponent(filename)}`,
+    src: mediaSrc(`images/gallery/${encodeURIComponent(filename)}`),
   };
 }
 
-/** Still photos from public/images/gallery — one-row slider above reels. */
+/** Still photos on Cloudflare R2 — one-row slider above reels. */
 export const galleryPhotos: GalleryPhoto[] = [
   photo("DSC04629.jpg", "Exhibition floor"),
   photo("DSC04697.jpg", "Stand coverage"),

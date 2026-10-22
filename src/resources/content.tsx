@@ -1,3 +1,4 @@
+import { MEDIA_BASE_URL } from "@/components/aina/galleryVideos";
 import { About, Blog, Gallery, Home, Newsletter, Person, Social, Work } from "@/types";
 import { Line, Row, Text } from "@once-ui-system/core";
 
@@ -262,42 +263,42 @@ const gallery: Gallery = {
   // These are placeholder images, replace with your own
   images: [
     {
-      src: "/images/gallery/horizontal-1.jpg",
+      src: `${MEDIA_BASE_URL}/images/gallery/horizontal-1.jpg`,
       alt: "image",
       orientation: "horizontal",
     },
     {
-      src: "/images/gallery/vertical-4.jpg",
+      src: `${MEDIA_BASE_URL}/images/gallery/vertical-4.jpg`,
       alt: "image",
       orientation: "vertical",
     },
     {
-      src: "/images/gallery/horizontal-3.jpg",
+      src: `${MEDIA_BASE_URL}/images/gallery/horizontal-3.jpg`,
       alt: "image",
       orientation: "horizontal",
     },
     {
-      src: "/images/gallery/vertical-1.jpg",
+      src: `${MEDIA_BASE_URL}/images/gallery/vertical-1.jpg`,
       alt: "image",
       orientation: "vertical",
     },
     {
-      src: "/images/gallery/vertical-2.jpg",
+      src: `${MEDIA_BASE_URL}/images/gallery/vertical-2.jpg`,
       alt: "image",
       orientation: "vertical",
     },
     {
-      src: "/images/gallery/horizontal-2.jpg",
+      src: `${MEDIA_BASE_URL}/images/gallery/horizontal-2.jpg`,
       alt: "image",
       orientation: "horizontal",
     },
     {
-      src: "/images/gallery/horizontal-4.jpg",
+      src: `${MEDIA_BASE_URL}/images/gallery/horizontal-4.jpg`,
       alt: "image",
       orientation: "horizontal",
     },
     {
-      src: "/images/gallery/vertical-3.jpg",
+      src: `${MEDIA_BASE_URL}/images/gallery/vertical-3.jpg`,
       alt: "image",
       orientation: "vertical",
     },
