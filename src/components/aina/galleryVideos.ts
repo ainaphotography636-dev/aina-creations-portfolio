@@ -37,11 +37,11 @@ function photo(filename: string, title: string): GalleryPhoto {
   return {
     id: `photo-${filename}`,
     title,
-    src: mediaSrc(encodeURIComponent(filename)),
+    src: mediaSrc(`Photos/${encodeURIComponent(filename)}`),
   };
 }
 
-/** Still photos at the R2 bucket root — one-row slider above reels. */
+/** Still photos in the R2 Photos/ folder — one-row slider above reels. */
 export const galleryPhotos: GalleryPhoto[] = [
   photo("DSC04629.jpg", "Exhibition floor"),
   photo("DSC04697.jpg", "Stand coverage"),
