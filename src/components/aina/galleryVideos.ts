@@ -12,11 +12,8 @@ export type GalleryPhoto = {
   src: string;
 };
 
-/**
- * Same-origin proxy for the R2 bucket. `/media/*` is rewritten to
- * https://pub-ab0998a4fe7f4f52be6a61debd869993.r2.dev/* in next.config.
- */
-export const MEDIA_BASE_URL = "/media";
+/** Public Cloudflare R2 bucket. The browser streams these files directly. */
+export const MEDIA_BASE_URL = "https://pub-ab0998a4fe7f4f52be6a61debd869993.r2.dev";
 
 function mediaSrc(path: string) {
   return `${MEDIA_BASE_URL}/${path}`;

@@ -45,6 +45,8 @@ export function AutoplayVideo({
     if (!video) return;
     if (!inView) {
       video.pause();
+      video.removeAttribute("src");
+      video.load();
       setReady(false);
       return;
     }
@@ -83,7 +85,7 @@ export function AutoplayVideo({
         muted={muted}
         loop
         playsInline
-        preload={inView ? "metadata" : "none"}
+        preload="metadata"
         controlsList="nodownload noplaybackrate"
         disablePictureInPicture
         draggable={false}
