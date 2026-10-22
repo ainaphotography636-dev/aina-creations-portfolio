@@ -2,6 +2,7 @@ export type Clip = {
   id: string;
   title: string;
   src: string;
+  poster: string;
   orientation: "vertical" | "horizontal";
 };
 
@@ -18,6 +19,15 @@ function mediaSrc(path: string) {
   return `${MEDIA_BASE_URL}/${path}`;
 }
 
+function posterSrc(filename: string) {
+  const slug = filename
+    .replace(/\.[^.]+$/, "")
+    .replace(/[^a-zA-Z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "")
+    .toLowerCase();
+  return `/video-posters/${slug}.jpg`;
+}
+
 function clip(filename: string, orientation: "vertical" | "horizontal", title?: string): Clip {
   const src = mediaSrc(`Videos/${encodeURIComponent(filename)}`);
   const fallback = filename
@@ -29,6 +39,7 @@ function clip(filename: string, orientation: "vertical" | "horizontal", title?: 
     id: `${orientation}-${filename}`,
     title: title ?? fallback,
     src,
+    poster: posterSrc(filename),
     orientation,
   };
 }

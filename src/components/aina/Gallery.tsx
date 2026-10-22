@@ -144,10 +144,12 @@ export function Gallery() {
               key={active.src}
               ref={activeVideoRef}
               src={active.src}
+              poster={active.poster}
               autoPlay
               muted={activeMuted}
               loop
               playsInline
+              preload="metadata"
               controlsList="nodownload noplaybackrate"
               disablePictureInPicture
               draggable={false}
@@ -444,6 +446,7 @@ function ClipCarousel({
           >
             <AutoplayVideo
               src={clip.src}
+              poster={clip.poster}
               aria-label={clip.title}
               showMuteControl
               className="h-full w-full object-cover"
