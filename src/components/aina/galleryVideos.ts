@@ -55,24 +55,24 @@ export const galleryPhotos: GalleryPhoto[] = [
   photo("GSK04395.jpg", "Stage moment"),
 ];
 
-/** 0130.mp4 is not in the R2 bucket, so it is omitted until that file is uploaded. */
 export const reelClips: Clip[] = [
-  clip("0129.mov", "vertical", "Stand coverage reel"),
-  clip("acs25.mov", "vertical", "Event reel"),
-  clip("day3.mov", "vertical", "Floor reel"),
-  clip("Prie.mov", "vertical", "Prime reel"),
-  clip("Star.mov", "vertical", "Star reel"),
-  clip("reel prime.mov", "vertical", "Reel prime"),
-  clip("0128.mov", "vertical", "Reel 1"),
-  clip("reel3 gff.mov", "vertical", "Reel 3"),
-  clip("reel 5 gf.mov", "vertical", "Reel 5"),
-  clip("Technology & Innovation in food safety reel.mov", "vertical", "Food safety reel"),
+  clip("0130.mp4", "vertical", "Exhibition reel"),
+  clip("0129.mp4", "vertical", "Stand coverage reel"),
+  clip("acs25.mp4", "vertical", "Event reel"),
+  clip("day3.mp4", "vertical", "Floor reel"),
+  clip("Prie.mp4", "vertical", "Prime reel"),
+  clip("Star.mp4", "vertical", "Star reel"),
+  clip("reel prime.mp4", "vertical", "Reel prime"),
+  clip("0128.mp4", "vertical", "Reel 1"),
+  clip("reel3 gff.mp4", "vertical", "Reel 3"),
+  clip("reel 5 gf.mp4", "vertical", "Reel 5"),
+  clip("Technology & Innovation in food safety reel.mp4", "vertical", "Food safety reel"),
 ];
 
 export const horizontalClips: Clip[] = [
-  clip("Ardeco day1.mov", "horizontal", "Ardeco day 1"),
-  clip("dynatrade 1.mov", "horizontal", "Dynatrade 1"),
-  clip("Vinno @ Arab Health 2025.mp4", "horizontal", "Vinno Arab Health"),
-  clip("sprint 1.mov", "horizontal", "Sprint 1"),
-  clip("HIghlight1 GFF.mov", "horizontal", "Highlight GFF"),
+  clip("Ardeco day1.mp4", "horizontal", "Ardeco day 1"),
+  clip("dynatrade 1.mp4", "horizontal", "Dynatrade 1"),
+  clip("Vinno @ Arab Health 2025_1.mp4", "horizontal", "Vinno Arab Health"),
+  clip("sprint 1.mp4", "horizontal", "Sprint 1"),
+  clip("HIghlight1 GFF.mp4", "horizontal", "Highlight GFF"),
 ];
